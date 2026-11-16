@@ -1,17 +1,26 @@
-#Bobby's brain: one neuron
+#Bobby's brain: six neuron! bobby getting smort!
 import numpy as np
 import math
 
-B_input = np.array([0.1,0.4,0.2])
-B_weights = np.array([0.1,0.2,0.3])
-B_bias = 0.1
+B_c = np.array([0.1,0.4,0.2]) # <- where it starts 
+B_input = B_c[np.newaxis, :] # <- The input where Bobby learns, takes the data, copy of B_c
+B_input.shape # ".shape" <- makes them have X AND Y; basically 2D
 
-#simple sigmoid
+#weights
+B_weights = np.random.randn(3,6) * 1
+#bias
+B_Bias = np.array([0.2])
+
+#B2_i and B_input each have 3 Neurons.
+
+#sigmoid
 def sigmoid(x):
-  return 1/(1+ np.exp(-x))
+    return 1/ (1 + np.exp(-x))
 
-B_total = np.dot(B_input, B_weights) + B_bias
-B_output = sigmoid(B_total)
-print("bobby's brain: ", B_output)
-#show amount of arrays
-print("Bobby's total neurons:", B_input.size, "Bobby is very stupid!") #I'm not sure if it means that though
+total = np.dot(B_input,B_weights) + B_Bias
+
+B_output = sigmoid(total)
+
+print("Bobby's Brain power:", B_output)
+
+print("total Nuerons: ", B_output.size)
