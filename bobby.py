@@ -13,3 +13,5 @@ def sigmoid(x):
 B_total = np.dot(B_input, B_weights) + B_bias
 B_output = sigmoid(B_total)
 print("bobby's brain: ", B_output)
+#show amount of arrays
+print("Bobby's total neurons:", B_input.size, "Bobby is very stupid!") #I'm not sure if it means that though
